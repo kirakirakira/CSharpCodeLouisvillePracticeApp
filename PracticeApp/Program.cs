@@ -4,7 +4,7 @@ namespace PracticeApp
 {
     internal class Program
     {
-        static void ShowMenu()
+        private static void ShowMenu()
         {
             Console.WriteLine("\n");
             Console.WriteLine("Main Menu:");
@@ -49,7 +49,7 @@ namespace PracticeApp
                     break;
             }
         }
-        static void AddTwoNumbers()
+        private static void AddTwoNumbers()
         {
             Console.WriteLine("You're adding two numbers");
             Console.WriteLine("Enter the first number");
