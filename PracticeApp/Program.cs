@@ -39,12 +39,24 @@ namespace PracticeApp
 
         private static void RemoveWhitespace()
         {
+            Console.WriteLine("Enter a string to have its whitespace removed");
+            string? phrase = Console.ReadLine();
+            StringBuilder sb = new StringBuilder("", phrase.Length);
 
+            for (int i = 0; i < phrase.Length; i++)
+            {
+                if (!Char.IsWhiteSpace(phrase[i]))
+                {
+                    sb.Append(phrase[i]);
+                }
+            }
+
+            Console.WriteLine(sb);
         }
 
         private static void ReverseAString()
         {
-            Console.WriteLine("You're reversing a string");
+            Console.WriteLine("Enter string to reverse");
             string? phrase = Console.ReadLine();
             StringBuilder sb = new StringBuilder("", phrase.Length);
 
@@ -106,14 +118,6 @@ namespace PracticeApp
         }
         static void Main(string[] args)
         {
-            // show user a menu
-            // offer options to user
-            // ask for their choice
-            // do their choice
-            // go back to menu
-            // go back to beginning
-            // unless choice is exit
-            // exit application
             while (ShowMenu())
             {
                 ShowMenu();
