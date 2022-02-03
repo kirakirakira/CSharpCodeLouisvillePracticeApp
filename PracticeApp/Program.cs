@@ -55,7 +55,7 @@ namespace PracticeApp
 
             Console.WriteLine(sb);
         }
-        private static void ShowMenu()
+        private static bool ShowMenu()
         {
             Console.WriteLine("\n");
             Console.WriteLine("Main Menu:");
@@ -76,36 +76,33 @@ namespace PracticeApp
             {
                 case 1:
                     AddTwoNumbers();
-                    ShowMenu();
                     break;
 
                 case 2:
                     SubtractTwoNumbers();
-                    ShowMenu();
                     break;
 
                 case 3:
                     RemoveWhitespace();
-                    ShowMenu();
                     break;
 
                 case 4:
                     ReverseAString();
-                    ShowMenu():
                     break;
 
                 case 5:
                     Console.WriteLine("Press any key to exit");
                     Console.ReadKey();
                     Console.WriteLine("Program exited");
-                    break;
+                    return false;
 
                 default:
                     Console.WriteLine("You failed to make a valid choice, too bad!");
                     Console.WriteLine("Just kidding, try again");
-                    ShowMenu();
                     break;
             }
+
+            return true;
         }
         static void Main(string[] args)
         {
@@ -117,7 +114,10 @@ namespace PracticeApp
             // go back to beginning
             // unless choice is exit
             // exit application
-            ShowMenu();
+            while (ShowMenu())
+            {
+                ShowMenu();
+            }
         }
     }
 }
