@@ -5,18 +5,28 @@ namespace PracticeApp
 {
     internal class Program
     {
+        private static int? GetNumber()
+        {
+            while (true)
+            {
+                Console.WriteLine("Enter a number:");
+                int number;
+                bool validNumber = int.TryParse(Console.ReadLine(), out number);
+                if (validNumber)
+                    return number;
+                else
+                    Console.WriteLine("That was not a number, try again");
+            }
+        }
         private static void AddTwoNumbers()
         {
             Console.WriteLine("You're adding two numbers");
-            Console.WriteLine("Enter the first number");
-            int first = (int)Char.GetNumericValue(Console.ReadKey().KeyChar);
-            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
-            Console.WriteLine("\n");
 
+
+            Console.WriteLine("Enter the first number");
+            int? first = GetNumber();
             Console.WriteLine("Enter the second number");
-            int second = (int)Char.GetNumericValue(Console.ReadKey().KeyChar);
-            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
-            Console.WriteLine("\n");
+            int? second = GetNumber();
 
             Console.WriteLine($"The sum of {first} and {second} is {first + second}");
         }
