@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using StringExtensions;
 
 namespace PracticeApp
 {
@@ -128,10 +129,39 @@ namespace PracticeApp
         }
         static void Main(string[] args)
         {
+            string toot = "Kira is awesome";
+            string strippedToot = toot.RemoveWhitespace();
+
+            Console.WriteLine(strippedToot);
+
             while (ShowMenu())
             {
                 ShowMenu();
             }
+        }
+    }
+}
+
+namespace StringExtensions
+{
+    public static class StringExtensionsClass
+    {
+
+        public static string RemoveWhitespace(this string fmt, params object[] args)
+        {
+            string formattedString = fmt;
+
+            StringBuilder sb = new StringBuilder("", formattedString.Length);
+
+            for (int i = 0; i < formattedString.Length; i++)
+            {
+                if (!Char.IsWhiteSpace(formattedString[i]))
+                {
+                    sb.Append(formattedString[i]);
+                }
+            }
+
+            return sb.ToString();
         }
     }
 }
