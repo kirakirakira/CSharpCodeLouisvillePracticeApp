@@ -7,7 +7,7 @@ namespace PracticeApp
     {
         public ReverseAString()
         {
-            this.Choice = "Subtract two numbers";
+            this.Choice = "Reverse a string";
         }
 
         public override bool ExecuteChoice()

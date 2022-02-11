@@ -7,7 +7,7 @@ namespace PracticeApp
     {
         public RemoveWhitespace()
         {
-            this.Choice = "Subtract two numbers";
+            this.Choice = "Remove whitespace";
         }
 
         public override bool ExecuteChoice()
