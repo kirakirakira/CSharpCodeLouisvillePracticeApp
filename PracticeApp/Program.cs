@@ -69,13 +69,10 @@ namespace PracticeApp
             Console.WriteLine("\n");
             Console.WriteLine($"Your choice was {userChoice}");
 
-            AddTwoNumbers choice1 = new AddTwoNumbers();
-
             switch (userChoice)
             {
                 case 1:
-                    choice1.ExecuteChoice();
-                    break;
+                    return new AddTwoNumbers().ExecuteChoice();
 
                 case 2:
                     SubtractTwoNumbers();

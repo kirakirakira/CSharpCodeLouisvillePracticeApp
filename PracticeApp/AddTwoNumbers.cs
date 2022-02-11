@@ -21,7 +21,6 @@ namespace PracticeApp
 
             Console.WriteLine($"The sum of {first} and {second} is {first + second}");
             return true;
-
         }
     }
 }
