@@ -6,32 +6,6 @@ namespace PracticeApp
 {
     internal class Program
     {
-        private static int? GetNumber()
-        {
-            while (true)
-            {
-                Console.WriteLine("Enter a number:");
-                int number;
-                bool validNumber = int.TryParse(Console.ReadLine(), out number);
-                if (validNumber)
-                    return number;
-                else
-                    Console.WriteLine("That was not a number, try again");
-            }
-        }
-        private static void AddTwoNumbers()
-        {
-            Console.WriteLine("You're adding two numbers");
-
-
-            Console.WriteLine("Enter the first number");
-            int? first = GetNumber();
-            Console.WriteLine("Enter the second number");
-            int? second = GetNumber();
-
-            Console.WriteLine($"The sum of {first} and {second} is {first + second}");
-        }
-
         private static void SubtractTwoNumbers()
         {
             Console.WriteLine("You're subtracting two numbers");
@@ -51,7 +25,7 @@ namespace PracticeApp
         private static void RemoveWhitespace()
         {
             Console.WriteLine("Enter a string to have its whitespace removed");
-            string? phrase = Console.ReadLine();
+            string phrase = Console.ReadLine();
             StringBuilder sb = new StringBuilder("", phrase.Length);
 
             for (int i = 0; i < phrase.Length; i++)
@@ -68,7 +42,7 @@ namespace PracticeApp
         private static void ReverseAString()
         {
             Console.WriteLine("Enter string to reverse");
-            string? phrase = Console.ReadLine();
+            string phrase = Console.ReadLine();
             StringBuilder sb = new StringBuilder("", phrase.Length);
 
             for (int i = phrase.Length - 1; i > 0; i--)
@@ -95,10 +69,12 @@ namespace PracticeApp
             Console.WriteLine("\n");
             Console.WriteLine($"Your choice was {userChoice}");
 
+            AddTwoNumbers choice1 = new AddTwoNumbers();
+
             switch (userChoice)
             {
                 case 1:
-                    AddTwoNumbers();
+                    choice1.ExecuteChoice();
                     break;
 
                 case 2:
@@ -147,9 +123,9 @@ namespace StringExtensions
     public static class StringExtensionsClass
     {
 
-        public static string RemoveWhitespace(this string fmt, params object[] args)
+        public static string RemoveWhitespace(this string str, params object[] args)
         {
-            string formattedString = fmt;
+            string formattedString = str;
 
             StringBuilder sb = new StringBuilder("", formattedString.Length);
 
