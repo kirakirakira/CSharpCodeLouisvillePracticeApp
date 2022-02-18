@@ -31,19 +31,24 @@ namespace PracticeApp
                 return items[userChoice - 1].ExecuteChoice();
             }
         }
-        static List<MenuItem> items = new List<MenuItem>();
+        static List<MenuItem> items = new List<MenuItem>()
+        {
+            new AddTwoNumbers(),
+            new SubtractTwoNumbers(),
+            new RemoveWhitespace(),
+            new ReverseAString(),
+            new Exit()
+        };
 
         public static void Main(string[] args)
         {
-            items.Add(new AddTwoNumbers());
-            items.Add(new SubtractTwoNumbers());
-            items.Add(new RemoveWhitespace());
-            items.Add(new ReverseAString());
-            items.Add(new Exit());
-
             while (ShowMenu())
             {
-                ShowMenu();
+                var shouldContinue = ShowMenu();
+                if (shouldContinue == false)
+                {
+                    break;
+                }
             }
         }
     }

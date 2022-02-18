@@ -12,10 +12,17 @@ namespace PracticeApp
 
         public override bool ExecuteChoice()
         {
-            Console.WriteLine("Press any key to exit");
-            Console.ReadKey();
-            Console.WriteLine("Program exited");
-            return false;
+            Console.WriteLine("Type quit to quit");
+            var quitString = Console.ReadLine();
+            if (quitString == "quit")
+            {
+                Console.WriteLine("Program exited");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
