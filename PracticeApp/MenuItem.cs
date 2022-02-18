@@ -3,9 +3,9 @@ using System.Text;
 
 namespace PracticeApp
 {
-    abstract class MenuItem
+    public interface IMenuItem
     {
-        public string Choice { get; set; }
-        public abstract bool ExecuteChoice();
+        string Choice { get; set; }
+        bool ExecuteChoice();
     }
 }

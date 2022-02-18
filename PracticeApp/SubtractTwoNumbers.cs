@@ -3,14 +3,15 @@ using System.Text;
 
 namespace PracticeApp
 {
-    internal class SubtractTwoNumbers : MenuItem
+    internal class SubtractTwoNumbers : IMenuItem
     {
+        public string Choice { get; set; } = "Subtract Two Numbers";
+
         public SubtractTwoNumbers()
         {
-            this.Choice = "Subtract two numbers";
         }
 
-        public override bool ExecuteChoice()
+        public bool ExecuteChoice()
         {
             Console.WriteLine("You're adding two numbers");
             Console.WriteLine("Enter the first number");

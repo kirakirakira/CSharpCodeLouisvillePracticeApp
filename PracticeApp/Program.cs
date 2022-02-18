@@ -31,7 +31,7 @@ namespace PracticeApp
                 return items[userChoice - 1].ExecuteChoice();
             }
         }
-        static List<MenuItem> items = new List<MenuItem>()
+        static List<IMenuItem> items = new List<IMenuItem>()
         {
             new AddTwoNumbers(),
             new SubtractTwoNumbers(),
@@ -42,13 +42,10 @@ namespace PracticeApp
 
         public static void Main(string[] args)
         {
-            while (ShowMenu())
+            var keepGoing = true;
+            while (keepGoing)
             {
-                var shouldContinue = ShowMenu();
-                if (shouldContinue == false)
-                {
-                    break;
-                }
+                keepGoing = ShowMenu();
             }
         }
     }

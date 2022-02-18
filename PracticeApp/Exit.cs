@@ -3,14 +3,15 @@ using System.Text;
 
 namespace PracticeApp
 {
-    internal class Exit : MenuItem
+    internal class Exit : IMenuItem
     {
+        public string Choice { get; set; } = "Exit";
+
         public Exit()
         {
-            this.Choice = "Exit";
         }
 
-        public override bool ExecuteChoice()
+        public bool ExecuteChoice()
         {
             Console.WriteLine("Type quit to quit");
             var quitString = Console.ReadLine();

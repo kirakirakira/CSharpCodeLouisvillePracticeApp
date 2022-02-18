@@ -3,14 +3,14 @@ using System.Text;
 
 namespace PracticeApp
 {
-    internal class ReverseAString : MenuItem
+    internal class ReverseAString : IMenuItem
     {
+        public string Choice { get; set; } = "Reverse a string";
         public ReverseAString()
         {
-            this.Choice = "Reverse a string";
         }
 
-        public override bool ExecuteChoice()
+        public bool ExecuteChoice()
         {
             Console.WriteLine("Enter string to reverse");
             string phrase = Console.ReadLine();

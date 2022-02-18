@@ -3,14 +3,14 @@ using System.Text;
 
 namespace PracticeApp
 {
-    internal class RemoveWhitespace : MenuItem
+    internal class RemoveWhitespace : IMenuItem
     {
+        public string Choice { get; set; } = "Remove whitespace";
+
         public RemoveWhitespace()
         {
-            this.Choice = "Remove whitespace";
         }
-
-        public override bool ExecuteChoice()
+        public bool ExecuteChoice()
         {
             Console.WriteLine("Enter a string to have its whitespace removed");
             string phrase = Console.ReadLine();

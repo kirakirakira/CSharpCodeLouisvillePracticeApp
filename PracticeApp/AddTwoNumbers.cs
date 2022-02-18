@@ -3,14 +3,15 @@ using System.Text;
 
 namespace PracticeApp
 {
-    internal class AddTwoNumbers : MenuItem
+    internal class AddTwoNumbers : IMenuItem
     {
+        public string Choice { get; set; } = "Add two numbers";
+
         public AddTwoNumbers()
         {
-            this.Choice = "Add two numbers";
         }
 
-        public override bool ExecuteChoice()
+        public bool ExecuteChoice()
         {
             Console.WriteLine("You're adding two numbers");
             Console.WriteLine("Enter the first number");
