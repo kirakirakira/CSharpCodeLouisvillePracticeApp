@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text;
+using System.Threading.Tasks;
+using System.Net.Http.Headers;
 
 namespace PracticeApp
 {
@@ -40,13 +42,29 @@ namespace PracticeApp
             new Exit()
         };
 
-        public static void Main(string[] args)
+        private static readonly HttpClient client = new HttpClient();
+        private static async Task ProcessRepositories()
         {
-            var keepGoing = true;
-            while (keepGoing)
-            {
-                keepGoing = ShowMenu();
-            }
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/geo+json"));
+            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (X11; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0");
+
+            var stringTask = client.GetStringAsync("https://api.weather.gov/gridpoints/LMK/57,81/forecast/hourly");
+
+            var msg = await stringTask;
+            Console.Write(msg);
+        }
+
+        public static async Task Main(string[] args)
+        {
+            // var keepGoing = true;
+            // while (keepGoing)
+            // {
+            //     keepGoing = ShowMenu();
+            // }
+
+            await ProcessRepositories();
         }
     }
 }
