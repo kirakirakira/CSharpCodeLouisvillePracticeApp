@@ -2,6 +2,8 @@
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http.Headers;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace PracticeApp
 {
@@ -43,7 +45,7 @@ namespace PracticeApp
         };
 
         private static readonly HttpClient client = new HttpClient();
-        private static async Task ProcessRepositories()
+        private static async Task<string> ProcessRepositories()
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -53,7 +55,7 @@ namespace PracticeApp
             var stringTask = client.GetStringAsync("https://api.weather.gov/gridpoints/LMK/57,81/forecast/hourly");
 
             var msg = await stringTask;
-            Console.Write(msg);
+            return msg;
         }
 
         public static async Task Main(string[] args)
@@ -64,7 +66,9 @@ namespace PracticeApp
             //     keepGoing = ShowMenu();
             // }
 
-            await ProcessRepositories();
+            var msg = await ProcessRepositories();
+            var objData = (JObject)JsonConvert.DeserializeObject(msg);
+            Console.WriteLine(objData);
         }
     }
 }
