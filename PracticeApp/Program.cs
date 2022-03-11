@@ -72,7 +72,14 @@ namespace PracticeApp
 
             var json = await GetWeather();
             dynamic weather = JObject.Parse(json);
-            Console.WriteLine(weather);
+
+            var periods = weather["properties"]["periods"];
+            for (int i = 0; i < periods.Count; i++)
+            {
+                Console.WriteLine(periods[i]["startTime"] + ": " +
+                periods[i]["temperature"] + periods[i]["temperatureUnit"] + " " +
+                periods[i]["shortForecast"]);
+            }
 
             Console.WriteLine("press any key to exit");
             Console.ReadKey();
