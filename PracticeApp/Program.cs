@@ -45,7 +45,7 @@ namespace PracticeApp
         };
 
         private static readonly HttpClient client = new HttpClient();
-        private static async Task<string> ProcessRepositories()
+        private static async Task<string> GetWeather()
         {
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
@@ -66,9 +66,16 @@ namespace PracticeApp
             //     keepGoing = ShowMenu();
             // }
 
-            var msg = await ProcessRepositories();
-            var objData = (JObject)JsonConvert.DeserializeObject(msg);
-            Console.WriteLine(objData);
+            // var msg = await GetWeather();
+            // var objData = (JObject)JsonConvert.DeserializeObject(msg);
+            // Console.WriteLine(objData);
+
+            var json = await GetWeather();
+            dynamic weather = JObject.Parse(json);
+            Console.WriteLine(weather);
+
+            Console.WriteLine("press any key to exit");
+            Console.ReadKey();
         }
     }
 }
